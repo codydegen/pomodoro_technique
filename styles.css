@@ -2,6 +2,7 @@
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
+    font-family: sans-serif; 
   }
 
 #statusContainer {
@@ -41,8 +42,8 @@ button.active:hover {
 }
 
 #timerContainer {
-    height: 200px;
-    position: relative;
+    height: 150px;
+    /* position: relative; */
     
 }
 #timer {
@@ -150,11 +151,11 @@ button, .status {
     margin-bottom: 10px;
 }
 .brk, .pom, .lbrk {
-    height: 20px;
-    width: 20px;
+    height: 50px;
+    width: 50px;
     margin: 5px;
-    border: 1px solid black;
-    border-radius: 10px;
+    border: 2px solid black;
+    border-radius: 25px;
     text-align: center;
     background-color: rgb(214, 214, 214);
 }
@@ -170,18 +171,22 @@ button, .status {
 /* .inProgress.pom {
     background: conic-gradient(green 10%, rgb(214, 214, 214) 0);
 } */
-.inProgress.brk {
+/* .inProgress.brk {
     background: conic-gradient(blue 10%, rgb(214, 214, 214) 0);
 }
 .inProgress.lbrk {
     background: conic-gradient(purple 10%, rgb(214, 214, 214) 0);
-}
+} */
 
 button:focus {
     outline-style: none;
     box-shadow: 0px 0px 0px 1px darkgray;
 }
-
+h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0px;
+}
 footer {
     position: fixed;
     bottom: 0;
