@@ -23,6 +23,7 @@
 #timingContainer, .subContainer {
 /* #timingContainer, #breakContainer, #pomodoroContainer, #lbContainer { */
     height: 63px;
+    border: 0;
 }
 
 .status {
@@ -64,11 +65,24 @@ button.active:hover {
 #stop:hover {
     background-color: darkred;
 }
+#skip {
+    background-color: rgb(190, 190, 0);
+}
+#skip:hover {
+    background-color: rgb(153, 153, 0);
+}
+
 #reset {
-    background-color: rgb(173, 173, 173);
+    background-color: rgb(190, 190, 190);
 }
 #reset:hover {
-    background-color: rgb(100, 100, 100);
+    background-color: rgb(136, 136, 136);
+}
+#resetAll {
+    background-color: rgb(136, 136, 136);
+}
+#resetAll:hover {
+    background-color: rgb(70, 70, 70);
 }
 .container {
 /* #statusContainer, #buttonContainer, #timerContainer, #timingContainer, #visualContainer { */
@@ -86,7 +100,7 @@ button.active:hover {
     
     /* width: 100%; */
 }
-button {
+button, .status {
     color: white;
     display: inline-block;
     /* border: medium solid black; */
@@ -98,7 +112,7 @@ button {
     line-height: 1;
     -webkit-appearance: none;
     height: 100%;
-    width: 100%;
+    width: 25%;
     transition: 0.15s;
 }
 #timingContainer {
@@ -135,7 +149,7 @@ button {
 .tm {
     margin-bottom: 10px;
 }
-.brk, .pom {
+.brk, .pom, .lbrk {
     height: 20px;
     width: 20px;
     margin: 5px;
@@ -144,11 +158,23 @@ button {
     text-align: center;
     background-color: rgb(214, 214, 214);
 }
-.complete {
+.complete.pom {
     background-color: green;
 }
-.inProgress {
+.complete.brk {
+    background-color: blue;
+}
+.complete.lbrk {
+    background-color: purple;
+}
+/* .inProgress.pom {
     background: conic-gradient(green 10%, rgb(214, 214, 214) 0);
+} */
+.inProgress.brk {
+    background: conic-gradient(blue 10%, rgb(214, 214, 214) 0);
+}
+.inProgress.lbrk {
+    background: conic-gradient(purple 10%, rgb(214, 214, 214) 0);
 }
 
 button:focus {
