@@ -2,6 +2,7 @@
 <html>
 <header>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
     <title>Cody's Pomodoro Timer</title>
 </header>
 <body>
@@ -18,8 +19,34 @@
                         Long Break
                     </button>
             </div>
+            <div id="timingContainer">
+                <div id="pomodoroContainer">
+                    <div class="arrow Down pomTime">&#709</div>
+                    <div id="pomodoroTime" class="time active">
+                            
+                        25
+                        
+                    </div>
+                    <div class="arrow Up pomTime">&#708 </div>
+                </div>
+                <div id="breakContainer">
+                    <div class="arrow Down breakTime">&#709</div>
+                    <div id="breakTime" class="time">
+                        5
+
+                    </div>
+                    <div class="arrow Up breakTime">&#708</div>
+                </div>
+                <div id="lbContainer">
+                    <div class="arrow Down lbTime">&#709</div>
+                    <div id="longbreakTime" class="time">
+                        30
+                    </div>
+                    <div class="arrow Up lbTime">&#708</div>
+                </div>
+            </div>
                 <div id="timerContainer">
-                        <div id="timer">Timer</div>
+                        <div id="timer">25:00</div>
                 </div>
                 <div id="buttonContainer">
                     <button id="start" class="timeStatus">Start</button>

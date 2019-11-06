@@ -19,10 +19,11 @@ footer {
     margin-top: 10%;
 }
 
-.status, .timeStatus {
+.status, .timeStatus, #breakContainer, #pomodoroContainer, #lbContainer {
     height: 45px; /* the height of each item */
-    width: 25%; /* width of each item */
+    width: 25%;
     min-width: 200px; /*  minimum width of a given box */
+    max-width: 250px;
     border: medium solid black; /* creates border for boxes */
     /* margin: 0 auto; spaces margin between items within flex box */
     text-align: center; /* centers text in Pomodoro buttons */
@@ -30,16 +31,21 @@ footer {
     white-space: nowrap;
     /* border-color: green; */
 }
+#timingContainer, #breakContainer, #pomodoroContainer, #lbContainer {
+    height: 63px;
+}
+
 .status {
     background-color: hsl(176, 100%, 50%);
 }
 .status:hover {
     background-color: hsl(176, 100%, 40%);
 }
-.active {
+
+button.active {
     background-color: hsl(176, 40%, 50%);
 }
-.active:hover {
+button.active:hover {
     background-color: hsl(176, 40%, 40%);
 }
 
@@ -75,7 +81,14 @@ footer {
     background-color: rgb(100, 100, 100);
 }
 
-#statusContainer, #buttonContainer, #timerContainer {
+#statusContainer, #buttonContainer, #timerContainer, #timingContainer {
+    display: flex; /* the organizatiion method for each item in tthe status container */
+    justify-content: center;
+    align-items: center;
+    
+    /* width: 100%; */
+}
+#pomodoroContainer, #breakContainer, #lbContainer {
     display: flex; /* the organizatiion method for each item in tthe status container */
     justify-content: center;
     align-items: center;
@@ -97,10 +110,38 @@ button {
     width: 100%;
     transition: 0.10s;
 }
+#timingContainer {
+    /* background-color: gray; */
+}
+.time {
+    padding: 10px;
+    font-family: sans-serif; 
+    font-size: 1rem;
+    /* height: 100%; */
+    width: 5%;
+    min-width: 80px;
+    max-width: 240px;
+    text-align: center;
+    border: medium solid black; /* creates border for boxes */
+    
+}
+.arrow {
+    padding: 2px;
+    font-weight: 400;
+    font-family: sans-serif; 
+    font-size: 2rem;
+    width: 15%;
+    text-align: center;
+    border: medium solid black; /* creates border for boxes */
+}
+.chevronDown {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "&#709;";
+    /* background-color: darkblue; */
+
+}
+
 button:focus {
     outline-style: none;
     box-shadow: 0px 0px 0px 1px darkgray;
-}
-#buttonContainer {
-    display: flex; /* the organizatiion method for each item in tthe status container */
 }
