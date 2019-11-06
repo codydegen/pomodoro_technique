@@ -13,27 +13,35 @@ statusButtons.forEach(button => button.addEventListener('click', function(e){
     e.target.classList.add("active");
     toggleTime();
 }));
-var id = true;
+var timeId = true;
 
 function startTime(){
     // start the countdown
-   id = setInterval(countdown, 100)
+    if (timeId === true){
+        timeId = setInterval(countdown, 20);
+    }
 };
 
 function countdown(){
     // decrement the clock in one second increments
     let timing = document.querySelector("#timer");
+    if (timing.textContent === "0:00") {
+        timerEnd();
+        return;
+    }
     timing.textContent = secondToStringConversion(stringToSecondConversion(timing.textContent)-1);
 
 };
 
 function stopTime() {
     // stop the documenting of the clock
-    clearInterval(id);
+    clearInterval(timeId);
+    timeId = true;
 };
 
 function reset() {
-    clearInterval(id);
+    clearInterval(timeId);
+    timeId = true;
     let newTime = parseInt(document.getElementsByClassName("time active")[0].textContent)*60;
     document.querySelector("#timer").textContent = secondToStringConversion(newTime);
 
@@ -75,8 +83,31 @@ function lengthClick(e) {
 };
 
 function toggleTime() {
-    
+    const currentActive = document.getElementsByClassName("status active")[0].id;
+    // console.dir(currentActive);
+    document.getElementsByClassName("time active")[0].classList.remove("active");
+    //e.target.classList.add("active");
+    let element;
+    switch (currentActive) {
+        case 'pomodoro':
+            element = document.querySelector("#pomodoroTime");
+            break;
+        case 'break':
+            element = document.querySelector("#breakTime");
+            break;
+        case 'longbreak':
+            element = document.querySelector("#longbreakTime");
+            break;    
 
-
+    }
+    element.classList.add("active");
     reset();
+};
+
+function timerEnd() {
+    const session = document.getElementsByClassName("status active")[0].id;
+    const nextSession = "next";
+    alert(`${session} is over.  Next up, ${nextSession}!`);
+    clearInterval(timeId);
+    timeId = true;
 };

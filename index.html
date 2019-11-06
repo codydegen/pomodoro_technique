@@ -2,12 +2,12 @@
 <html>
 <header>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" /> -->
     <title>Cody's Pomodoro Timer</title>
 </header>
 <body>
-        <div id="container">
-            <div id="statusContainer">
+        <div id="overallContainer">
+            <div id="statusContainer" class="container">
                     <button id="pomodoro" class="status active">
                         Pomodoro
                     </button>
@@ -19,8 +19,8 @@
                         Long Break
                     </button>
             </div>
-            <div id="timingContainer">
-                <div id="pomodoroContainer">
+            <div id="timingContainer" class="container">
+                <div id="pomodoroContainer" class="subContainer">
                     <div class="arrow Down pomTime">&#709</div>
                     <div id="pomodoroTime" class="time active">
                             
@@ -29,7 +29,7 @@
                     </div>
                     <div class="arrow Up pomTime">&#708 </div>
                 </div>
-                <div id="breakContainer">
+                <div id="breakContainer" class="subContainer">
                     <div class="arrow Down breakTime">&#709</div>
                     <div id="breakTime" class="time">
                         5
@@ -37,7 +37,7 @@
                     </div>
                     <div class="arrow Up breakTime">&#708</div>
                 </div>
-                <div id="lbContainer">
+                <div id="lbContainer" class="subContainer">
                     <div class="arrow Down lbTime">&#709</div>
                     <div id="longbreakTime" class="time">
                         30
@@ -45,14 +45,27 @@
                     <div class="arrow Up lbTime">&#708</div>
                 </div>
             </div>
-                <div id="timerContainer">
+                <div id="timerContainer" class="container">
                         <div id="timer">25:00</div>
                 </div>
-                <div id="buttonContainer">
+                <div id="visualPomodoroContainer" class="container tm">
+                    <div id="visual1" class="pom complete">Y</div>
+                    <div id="visual2" class="pom inProgress">Y</div>
+                    <div id="visual3" class="pom">Y</div>
+                    <div id="visual4" class="pom">Y</div>
+            </div>
+            <div id="visualBreakContainer" class="container tm">
+                    <div id="break1" class="brk complete">Y</div>
+                    <div id="break2" class="brk inProgress">Y</div>
+                    <div id="break3" class="brk">Y</div>
+                    <div id="longbreak" class="brk">Y</div>
+            </div>
+                <div id="buttonContainer" class="container">
                     <button id="start" class="timeStatus">Start</button>
                     <button id="stop" class="timeStatus">Stop</button>
                     <button id="reset" class="timeStatus">Reset</button>
                 </div>
+                
         </div>
 
 
