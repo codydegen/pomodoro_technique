@@ -10,17 +10,114 @@
       box-sizing: border-box;
   font-family: sans-serif;
   font-weight: 700;
-  }
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+span {
+  padding: 5px;
+}
 #overallContainer {
   margin-top: 5%;
 }
-#pomodoro, .pomTime {
-  background-color: var(--POMODOROCOLOR);
+
+.container, .subContainer {
+  /* #statusContainer, #buttonContainer, #timerContainer, #timingContainer, #visualContainer { */
+    display: flex; /* the organizatiion method for each item in tthe status container */
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.status, .timeStatus, .subContainer {
+  height: 45px; /* the height of each item */
+  width: 25%;
+  min-width: 200px; /*  minimum width of a given box */
+  max-width: 250px;
+  border: medium solid black; /* creates border for boxes */
+  text-align: center; /* centers text in Pomodoro buttons */
+  white-space: nowrap;
+}
+
+#statusContainer {
+  margin-top: 5%;
+}
+
+#timingContainer, .subContainer {
+/* #timingContainer, #breakContainer, #pomodoroContainer, #lbContainer { */
+  height: 160px;
+  border: 0;
+}
+
+.subContainer {
+  flex-direction: column;
+}
+
+#timerContainer {
+  height: 125px;
+}
+
+#timer {
+  font-size: 5em;
+  font-family: sans-serif;
+}
+
+button, .status {
+  color: white;
+  display: inline-block;
+  border-radius: 10px;
+  margin: 0px;
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  -webkit-appearance: none;
+  height: 100%;
+  width: 25%;
+  transition: 0.15s;
+}
+
+.time {
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: 2rem;
+  /* height: 100%; */
+  width: 5%;
+  min-width: 80px;
+  max-width: 240px;
+  text-align: center;
+  /* border: medium solid black; creates border for boxes */
+
 }
 .arrow {
+  padding: 2px;
+  font-weight: 400;
+  font-family: sans-serif;
+  font-size: 2rem;
+  width: 15%;
+  text-align: center;
+  border: medium solid black; /* creates border for boxes */
+  border-radius: 10px;
   transition: 0.15s;
   color: white;
 }
+
+/* all the colors */
+#pomodoro, .pomTime {
+  background-color: var(--POMODOROCOLOR);
+}
+#longbreak, .lbTime {
+  background-color: var(--LONGBREAKCOLOR);
+}
+
+#break, .breakTime {
+  background-color: var(--BREAKCOLOR);
+}
+
 .pomTime:hover {
   background-color: rgb(100, 0, 0);
 }
@@ -32,66 +129,6 @@
 .breakTime:hover {
   background-color: rgb(37, 37, 121);
 }
-
-#longbreak, .lbTime {
-  background-color: var(--LONGBREAKCOLOR);
-}
-
-#break, .breakTime {
-  background-color: var(--BREAKCOLOR);
-}
-
-#statusContainer {
-  margin-top: 5%;
-}
-.status, .timeStatus, .subContainer {
-/* .status, .timeStatus, #breakContainer, #pomodoroContainer, #lbContainer { */
-  height: 45px; /* the height of each item */
-  width: 25%;
-  min-width: 200px; /*  minimum width of a given box */
-  max-width: 250px;
-  border: medium solid black; /* creates border for boxes */
-  /* margin: 0 auto; spaces margin between items within flex box */
-  text-align: center; /* centers text in Pomodoro buttons */
-  /* line-height: 35px; */
-  white-space: nowrap;
-  /* border-color: green; */
-}
-#timingContainer, .subContainer {
-/* #timingContainer, #breakContainer, #pomodoroContainer, #lbContainer { */
-  height: 160px;
-  border: 0;
-}
-
-.subContainer {
-  flex-direction: column;
-}
-
-.status {
-  background-color: hsl(176, 100%, 50%);
-}
-.status:hover, button.active {
-  background-color: hsl(176, 100%, 40%);
-}
-
-/* button.active {
-  background-color: hsl(176, 100%, 40%);
-} */
-button.active:hover {
-  background-color: hsl(176, 40%, 40%);
-}
-
-#timerContainer {
-  height: 125px;
-  /* position: relative; */
-
-}
-#timer {
-
-  font-size: 5em;
-  font-family: sans-serif;
-}
-
 
 #start {
   background-color: green;
@@ -125,68 +162,6 @@ button.active:hover {
 #resetAll:hover {
   background-color: rgb(70, 70, 70);
 }
-.container {
-/* #statusContainer, #buttonContainer, #timerContainer, #timingContainer, #visualContainer { */
-  display: flex; /* the organizatiion method for each item in tthe status container */
-  justify-content: center;
-  align-items: center;
-
-  /* width: 100%; */
-}
-.subContainer {
-/* #pomodoroContainer, #breakContainer, #lbContainer { */
-  display: flex; /* the organizatiion method for each item in tthe status container */
-  justify-content: center;
-  align-items: center;
-
-  /* width: 100%; */
-}
-button, .status {
-  color: white;
-  display: inline-block;
-  /* border: medium solid black; */
-  border-radius: 10px;
-  margin: 0px;
-  padding: 10px;
-  font-family: sans-serif;
-  font-size: 1rem;
-  line-height: 1;
-  -webkit-appearance: none;
-  height: 100%;
-  width: 25%;
-  transition: 0.15s;
-}
-#timingContainer {
-  /* background-color: gray; */
-}
-.time {
-  padding: 10px;
-  font-family: sans-serif;
-  font-size: 2rem;
-  /* height: 100%; */
-  width: 5%;
-  min-width: 80px;
-  max-width: 240px;
-  text-align: center;
-  /* border: medium solid black; creates border for boxes */
-
-}
-.arrow {
-  padding: 2px;
-  font-weight: 400;
-  font-family: sans-serif;
-  font-size: 2rem;
-  width: 15%;
-  text-align: center;
-  border: medium solid black; /* creates border for boxes */
-  border-radius: 10px;
-}
-/* .chevronDown {
-  font: normal normal normal 14px/1 FontAwesome;
-  content: "&#709;";
-  background-color: darkblue;
-
-} */
 
 .tm {
   margin-bottom: 10px;
@@ -214,12 +189,7 @@ button:focus {
   outline-style: none;
   box-shadow: 0px 0px 0px 1px darkgray;
 }
-h1 {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 0px;
-  margin-top: 10px;
-}
+
 footer {
   position: fixed;
   bottom: 0;
@@ -231,7 +201,4 @@ footer {
   text-align: center;
   line-height: 70px;
   white-space: nowrap;
-  }
-  span {
-    padding: 5px;
   }

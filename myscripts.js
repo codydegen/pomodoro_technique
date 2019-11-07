@@ -1,13 +1,18 @@
+
+/*
+  potential future updates:
+    re-factor toggleTime and timeSwap
+    make the selection length items expand from a status button
+    add a tab icon
+    make the number of Pomodoros flexible
+*/
+
+// colors for Pomodoro fill ins and related buttons
 const POMODOROCOLOR = "rgb(128, 0, 0)";
 const BREAKCOLOR = "rgb(46, 46, 150)";
 const LONGBREAKCOLOR = "rgb(128, 0, 128)";
 
-// finalize colors
-//document.getElementById("pomodoro").style.cssText = `background-color: ${POMODOROCOLOR}`;
-//document.getElementById("break").style.cssText = `background-color: ${BREAKCOLOR}`;
-//document.getElementById("longbreak").style.cssText = `background-color: ${LONGBREAKCOLOR}`;
-
-
+// add event listeners for buttons
 const startButton = document.querySelector("#start");
 startButton.addEventListener('click', startTime)
 
@@ -23,26 +28,22 @@ resetButton.addEventListener('click', reset);
 const resetAllButton = document.querySelector("#resetAll");
 resetAllButton.addEventListener('click', resetAll);
 
-const decrementButtons = document.querySelectorAll(".arrow")
-decrementButtons.forEach(button => button.addEventListener('click', lengthClick));
+const arrowButtons = document.querySelectorAll(".arrow")
+arrowButtons.forEach(button => button.addEventListener('click', lengthClick));
 const statusButtons = document.querySelectorAll(".status");
-/* statusButtons.forEach(button => button.addEventListener('click', function(e){
-  const currentActive = document.getElementsByClassName("status active")[0];
-  currentActive.classList.toggle("active");
-  e.target.classList.add("active");
-  toggleTime();
-})); */
+
+
 var timeId = true;
 
 function startTime() {
   // start the countdown
   if (timeId === true) {
-    timeId = setInterval(countdown, 1);
+    timeId = setInterval(countdown, 1000);
   }
 };
 
+// decrement the clock in one second increments
 function countdown() {
-  // decrement the clock in one second increments
   let timing = document.querySelector("#timer");
   if (timing.textContent === "0:00") {
     timerEnd();
@@ -55,11 +56,8 @@ function countdown() {
 
 function visualUpdate(currentTiming, totalTiming) {
   // do a visual update of the circles
-  // console.log(1 - currentTiming/totalTiming);
   const currentProgression = 100 - Math.round(currentTiming * 100 / totalTiming);
-  //console.log(currentProgression);
   const progressBar = document.getElementsByClassName("inProgress")[0];
-  // console.dir(progressBar);
   let progressColor;
   switch (progressBar.classList[1]) {
     case "pom":
@@ -72,16 +70,17 @@ function visualUpdate(currentTiming, totalTiming) {
       progressColor = LONGBREAKCOLOR;
       break;
   }
-  progressBar.style.cssText = `background: conic-gradient(${progressColor} ${currentProgression}%, rgb(214, 214, 214) 0)`;
-  //console.dir(progressBar);
+  progressBar.style.cssText = `background: conic-gradient(${progressColor}`+
+      ` ${currentProgression}%, rgb(214, 214, 214) 0)`;
 };
 
+// stop the decrementing of the clock
 function stopTime() {
-  // stop the documenting of the clock
   clearInterval(timeId);
   timeId = true;
 };
 
+// reset the clock to the selected time
 function reset() {
   clearInterval(timeId);
   timeId = true;
@@ -89,13 +88,10 @@ function reset() {
   document.querySelector("#timer").textContent = secondToStringConversion(newTime);
   let currentStatus = document.querySelector(".inProgress");
   currentStatus.style.cssText = 'background-color: rgb(214, 214, 214)';
-
-  // reset the clock to the selected time
-
 };
 
+// start over from the very beginning
 function resetAll() {
-  // still in progress
   clearInterval(timeId);
   timeId = true;
   document.getElementsByClassName("time active")[0].classList.remove("active");
@@ -108,22 +104,20 @@ function resetAll() {
   if (currentStatus !== null) currentStatus.classList.toggle("inProgress");
   document.getElementById("visual1").classList.add("inProgress");
   document.getElementById("label").innerText = "Pomodoro #1"
-
-  //toggleTime();
 };
 
+// skip to the next timer
 function skip() {
-
   const visual = document.getElementsByClassName("inProgress")[0];
   const visualNumber = visual.id[visual.id.length - 1];
   visual.classList.remove("inProgress");
   visual.classList.add("complete");
   let nextId;
   let nextSession;
+  // if the active circle is the very last one, start over from the beginning
   if (visualNumber === "8") {
     nextId = "visual1";
     nextSession = document.getElementById(nextId);
-
   } else {
     nextId = "visual" + parseInt(parseInt(visualNumber) + 1);
     nextSession = document.getElementById(nextId);
@@ -134,6 +128,7 @@ function skip() {
   reset();
 };
 
+// convert raw number of seconds to timeclock output
 function secondToStringConversion(seconds) {
   const minutes = Math.floor(seconds / 60);
   let remainderSeconds = seconds - minutes * 60;
@@ -141,11 +136,13 @@ function secondToStringConversion(seconds) {
   return minutes + remainderSeconds;
 };
 
+// convert from timeclock output to raw number of seconds
 function stringToSecondConversion(string) {
   const timeArray = string.split(":");
   return parseInt(timeArray[0]) * 60 + parseInt(timeArray[1]);
 };
 
+// change the length of the different phases by clicking the button
 function lengthClick(e) {
 
   let elementName = e.path[0].className.split(" ");
@@ -167,7 +164,6 @@ function lengthClick(e) {
   } else {
     element.innerText = parseInt(element.innerText) + 1;
   }
-  //console.dir(element);
   if (element.classList.contains("active")) {
     reset();
     document.querySelector("#timer").textContent = element.innerText + ":00";
@@ -175,6 +171,7 @@ function lengthClick(e) {
 
 };
 
+// go from the current timing method to whatever new timing method is next
 function toggleTime() {
   const currentActive = document.getElementsByClassName("status active")[0].id;
   document.getElementsByClassName("time active")[0].classList.remove("active");
@@ -194,6 +191,7 @@ function toggleTime() {
   reset();
 };
 
+// do all the things that need to be done when the timer is completed
 function timerEnd() {
   // still in progress
   const session = document.getElementsByClassName("status active")[0];
@@ -212,12 +210,7 @@ function timerEnd() {
     nextId = "visual" + parseInt(parseInt(visualNumber) + 1);
     nextSession = document.getElementById(nextId);
   }
-
   nextSession.classList.add("inProgress");
-  //console.dir(nextSession);
-  //console.dir(session);
-  //console.dir(visual);
-
   //alert(`${session.id} is over.  Next up, ${nextSession}!`);
   clearInterval(timeId);
   timeId = true;
@@ -225,6 +218,7 @@ function timerEnd() {
   reset();
 };
 
+// update all the other class behavior not taken care of in toggleTime
 function timeSwap() {
   const visual = document.getElementsByClassName("inProgress")[0];
   const visualNumber = visual.id[visual.id.length - 1];

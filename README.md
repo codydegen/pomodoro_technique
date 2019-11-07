@@ -16,6 +16,6 @@ This project was completed following The Odin Project's [curriculum](https://www
 The live version of the webpage can be seen [here](https://codydegen.github.io/pomodoro-technique/).
 
 ## Status
-The project is in progress.
+The project is complete.
 
 ## 
