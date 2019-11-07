@@ -1,83 +1,85 @@
 <!DOCTYPE html>
 <html>
 <header>
-    <link rel="stylesheet" href="styles.css" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" /> -->
-    <title>Cody's Pomodoro Timer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" /> -->
+  <title>Cody's Pomodoro Timer</title>
 </header>
 <body>
-        <div id="overallContainer">
-            <div id="statusContainer" class="container">
-                    <div id="pomodoro" class="status active">
-                        Pomodoro Length
-                    </div>
-                    <div id="break" class="status">
-                        Short Break Length
+    <div id="overallContainer">
 
-                    </div>
-                    <div id="longbreak" class="status">
-                        Long Break Length
-                    </div>
-            </div>
-            <div id="timingContainer" class="container">
-                <div id="pomodoroContainer" class="subContainer">
-                    <div class="arrow Down pomTime">&#709</div>
-                    <div id="pomodoroTime" class="time active">
-                            
-                        25
-                        
-                    </div>
-                    <div class="arrow Up pomTime">&#708 </div>
-                </div>
-                <div id="breakContainer" class="subContainer">
-                    <div class="arrow Down breakTime">&#709</div>
-                    <div id="breakTime" class="time">
-                        5
-
-                    </div>
-                    <div class="arrow Up breakTime">&#708</div>
-                </div>
-                <div id="lbContainer" class="subContainer">
-                    <div class="arrow Down lbTime">&#709</div>
-                    <div id="longbreakTime" class="time">
-                        30
-                    </div>
-                    <div class="arrow Up lbTime">&#708</div>
-                </div>
-            </div>
-            <h1 id="label">Pomodoro #1</h1>
-                <div id="timerContainer" class="container">
-                        
-                        <div id="timer">25:00</div>
-                </div>
-                <div id="visualPomodoroContainer" class="container tm">
-                    <div id="visual1" class="progress pom inProgress"></div>
-                    <div id="visual3" class="progress pom"></div>
-                    <div id="visual5" class="progress pom"></div>
-                    <div id="visual7" class="progress pom"></div>
-            </div>
-            <div id="visualBreakContainer" class="container tm">
-                    <div id="visual2" class="progress brk"></div>
-                    <div id="visual4" class="progress brk"></div>
-                    <div id="visual6" class="progress brk"></div>
-                    <div id="visual8" class="progress lbrk"></div>
-            </div>
-                <div id="toggleContainer" class="container">
-                    <button id="start" class="timeStatus">Start</button>
-                    <button id="stop" class="timeStatus">Pause</button>
-                    <button id="skip" class="timeStatus">Skip</button>
-                </div>
-                <div id="resetContainer" class="container">
-                    <button id="reset" class="timeStatus">Reset Current</button>
-                    <button id="resetAll" class="timeStatus">Reset All</button>
-                </div>
-                
+      <h1 id="label">Pomodoro #1</h1>
+        <div id="timerContainer" class="container">
+            
+            <div id="timer">25:00</div>
         </div>
+        <div id="visualPomodoroContainer" class="container tm">
+          <div id="visual1" class="progress pom inProgress"></div>
+          <div id="visual3" class="progress pom"></div>
+          <div id="visual5" class="progress pom"></div>
+          <div id="visual7" class="progress pom"></div>
+      </div>
+      <div id="visualBreakContainer" class="container tm">
+          <div id="visual2" class="progress brk"></div>
+          <div id="visual4" class="progress brk"></div>
+          <div id="visual6" class="progress brk"></div>
+          <div id="visual8" class="progress lbrk"></div>
+      </div>
+        <div id="toggleContainer" class="container">
+          <button id="start" class="timeStatus">Start</button>
+          <button id="stop" class="timeStatus">Pause</button>
+          <button id="skip" class="timeStatus">Skip</button>
+        </div>
+        <div id="resetContainer" class="container">
+          <button id="reset" class="timeStatus">Reset Current</button>
+          <button id="resetAll" class="timeStatus">Reset All</button>
+        </div>
+        <div id="statusContainer" class="container">
+          <div id="pomodoro" class="status active">
+            Pomodoro Length
+          </div>
+          <div id="break" class="status">
+            Short Break Length
+
+          </div>
+          <div id="longbreak" class="status">
+            Long Break Length
+          </div>
+      </div>
+      <div id="timingContainer" class="container">
+        <div id="pomodoroContainer" class="subContainer">
+          
+          <div class="arrow Up pomTime">&#8679</div>
+          <div id="pomodoroTime" class="time active">
+            25
+          </div>
+          <div class="arrow Down pomTime">&#8681</div>
+        </div>
+        <div id="breakContainer" class="subContainer">
+          <div class="arrow Up breakTime">&#8679</div>
+          <div id="breakTime" class="time">
+            5
+          </div>
+          <div class="arrow Down breakTime">&#8681</div>
+          
+        </div>
+        <div id="lbContainer" class="subContainer">
+          
+          <div class="arrow Up lbTime">&#8679</div>
+          <div id="longbreakTime" class="time">
+            30
+          </div>
+          <div class="arrow Down lbTime">&#8681</div>
+        </div>
+      </div>
+    </div>
 
 
 </body>
 <footer>
-    <a href="https://github.com/codydegen/pomodoro_technique">Made by Cody Degen</a>
+  <span><a href="https://github.com/codydegen/pomodoro_technique">Made by Cody Degen</a></span>
+  <span><a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">What is this?</a></span>
+  <span><a href="https://www.theodinproject.com/courses/web-development-101/lessons/pairing-project">The Odin Project</a></span>
 </footer>
 <script src="myscripts.js"></script>
 </html>

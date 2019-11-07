@@ -1,201 +1,237 @@
+:root {
+  --POMODOROCOLOR: rgb(128, 0, 0);
+  --BREAKCOLOR: rgb(46, 46, 150);
+  --LONGBREAKCOLOR: rgb(128, 0, 128);
+}
+
 * {
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-    font-family: sans-serif; 
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      box-sizing: border-box;
+  font-family: sans-serif;
+  font-weight: 700;
   }
+#overallContainer {
+  margin-top: 5%;
+}
+#pomodoro, .pomTime {
+  background-color: var(--POMODOROCOLOR);
+}
+.arrow {
+  transition: 0.15s;
+  color: white;
+}
+.pomTime:hover {
+  background-color: rgb(100, 0, 0);
+}
+
+.lbTime:hover {
+  background-color: rgb(100, 0, 100);
+}
+
+.breakTime:hover {
+  background-color: rgb(37, 37, 121);
+}
+
+#longbreak, .lbTime {
+  background-color: var(--LONGBREAKCOLOR);
+}
+
+#break, .breakTime {
+  background-color: var(--BREAKCOLOR);
+}
 
 #statusContainer {
-    margin-top: 10%;
+  margin-top: 5%;
 }
 .status, .timeStatus, .subContainer {
 /* .status, .timeStatus, #breakContainer, #pomodoroContainer, #lbContainer { */
-    height: 45px; /* the height of each item */
-    width: 25%;
-    min-width: 200px; /*  minimum width of a given box */
-    max-width: 250px;
-    border: medium solid black; /* creates border for boxes */
-    /* margin: 0 auto; spaces margin between items within flex box */
-    text-align: center; /* centers text in Pomodoro buttons */
-    /* line-height: 35px; */
-    white-space: nowrap;
-    /* border-color: green; */
+  height: 45px; /* the height of each item */
+  width: 25%;
+  min-width: 200px; /*  minimum width of a given box */
+  max-width: 250px;
+  border: medium solid black; /* creates border for boxes */
+  /* margin: 0 auto; spaces margin between items within flex box */
+  text-align: center; /* centers text in Pomodoro buttons */
+  /* line-height: 35px; */
+  white-space: nowrap;
+  /* border-color: green; */
 }
 #timingContainer, .subContainer {
 /* #timingContainer, #breakContainer, #pomodoroContainer, #lbContainer { */
-    height: 63px;
-    border: 0;
+  height: 160px;
+  border: 0;
+}
+
+.subContainer {
+  flex-direction: column;
 }
 
 .status {
-    background-color: hsl(176, 100%, 50%);
+  background-color: hsl(176, 100%, 50%);
 }
 .status:hover, button.active {
-    background-color: hsl(176, 100%, 40%);
+  background-color: hsl(176, 100%, 40%);
 }
 
 /* button.active {
-    background-color: hsl(176, 100%, 40%);
+  background-color: hsl(176, 100%, 40%);
 } */
 button.active:hover {
-    background-color: hsl(176, 40%, 40%);
+  background-color: hsl(176, 40%, 40%);
 }
 
 #timerContainer {
-    height: 150px;
-    /* position: relative; */
-    
+  height: 125px;
+  /* position: relative; */
+
 }
 #timer {
 
-    font-size: 5em; 
-    font-family: sans-serif; 
+  font-size: 5em;
+  font-family: sans-serif;
 }
 
 
 #start {
-    background-color: green;
+  background-color: green;
 }
 #start:hover {
-    background-color: darkgreen;
+  background-color: darkgreen;
 }
 
 #stop {
-    background-color: red;
+  background-color: red;
 }
 #stop:hover {
-    background-color: darkred;
+  background-color: darkred;
 }
 #skip {
-    background-color: rgb(190, 190, 0);
+  background-color: rgb(190, 190, 0);
 }
 #skip:hover {
-    background-color: rgb(153, 153, 0);
+  background-color: rgb(153, 153, 0);
 }
 
 #reset {
-    background-color: rgb(190, 190, 190);
+  background-color: rgb(190, 190, 190);
 }
 #reset:hover {
-    background-color: rgb(136, 136, 136);
+  background-color: rgb(136, 136, 136);
 }
 #resetAll {
-    background-color: rgb(136, 136, 136);
+  background-color: rgb(136, 136, 136);
 }
 #resetAll:hover {
-    background-color: rgb(70, 70, 70);
+  background-color: rgb(70, 70, 70);
 }
 .container {
 /* #statusContainer, #buttonContainer, #timerContainer, #timingContainer, #visualContainer { */
-    display: flex; /* the organizatiion method for each item in tthe status container */
-    justify-content: center;
-    align-items: center;
-    
-    /* width: 100%; */
+  display: flex; /* the organizatiion method for each item in tthe status container */
+  justify-content: center;
+  align-items: center;
+
+  /* width: 100%; */
 }
 .subContainer {
 /* #pomodoroContainer, #breakContainer, #lbContainer { */
-    display: flex; /* the organizatiion method for each item in tthe status container */
-    justify-content: center;
-    align-items: center;
-    
-    /* width: 100%; */
+  display: flex; /* the organizatiion method for each item in tthe status container */
+  justify-content: center;
+  align-items: center;
+
+  /* width: 100%; */
 }
 button, .status {
-    color: white;
-    display: inline-block;
-    /* border: medium solid black; */
-    border-radius: 10px;
-    margin: 0px;
-    padding: 10px;
-    font-family: sans-serif; 
-    font-size: 1rem;
-    line-height: 1;
-    -webkit-appearance: none;
-    height: 100%;
-    width: 25%;
-    transition: 0.15s;
+  color: white;
+  display: inline-block;
+  /* border: medium solid black; */
+  border-radius: 10px;
+  margin: 0px;
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  -webkit-appearance: none;
+  height: 100%;
+  width: 25%;
+  transition: 0.15s;
 }
 #timingContainer {
-    /* background-color: gray; */
+  /* background-color: gray; */
 }
 .time {
-    padding: 10px;
-    font-family: sans-serif; 
-    font-size: 1rem;
-    /* height: 100%; */
-    width: 5%;
-    min-width: 80px;
-    max-width: 240px;
-    text-align: center;
-    border: medium solid black; /* creates border for boxes */
-    
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: 2rem;
+  /* height: 100%; */
+  width: 5%;
+  min-width: 80px;
+  max-width: 240px;
+  text-align: center;
+  /* border: medium solid black; creates border for boxes */
+
 }
 .arrow {
-    padding: 2px;
-    font-weight: 400;
-    font-family: sans-serif; 
-    font-size: 2rem;
-    width: 15%;
-    text-align: center;
-    border: medium solid black; /* creates border for boxes */
+  padding: 2px;
+  font-weight: 400;
+  font-family: sans-serif;
+  font-size: 2rem;
+  width: 15%;
+  text-align: center;
+  border: medium solid black; /* creates border for boxes */
+  border-radius: 10px;
 }
 /* .chevronDown {
-    font: normal normal normal 14px/1 FontAwesome;
-    content: "&#709;";
-    background-color: darkblue; 
+  font: normal normal normal 14px/1 FontAwesome;
+  content: "&#709;";
+  background-color: darkblue;
 
 } */
 
 .tm {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 .brk, .pom, .lbrk {
-    height: 50px;
-    width: 50px;
-    margin: 5px;
-    border: 2px solid black;
-    border-radius: 25px;
-    text-align: center;
-    background-color: rgb(214, 214, 214);
+  height: 50px;
+  width: 50px;
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 25px;
+  text-align: center;
+  background-color: rgb(214, 214, 214);
 }
 .complete.pom {
-    background-color: green;
+  background-color: var(--POMODOROCOLOR);
 }
 .complete.brk {
-    background-color: blue;
+  background-color: var(--BREAKCOLOR);
 }
 .complete.lbrk {
-    background-color: purple;
+  background-color: var(--LONGBREAKCOLOR);
 }
-/* .inProgress.pom {
-    background: conic-gradient(green 10%, rgb(214, 214, 214) 0);
-} */
-/* .inProgress.brk {
-    background: conic-gradient(blue 10%, rgb(214, 214, 214) 0);
-}
-.inProgress.lbrk {
-    background: conic-gradient(purple 10%, rgb(214, 214, 214) 0);
-} */
 
 button:focus {
-    outline-style: none;
-    box-shadow: 0px 0px 0px 1px darkgray;
+  outline-style: none;
+  box-shadow: 0px 0px 0px 1px darkgray;
 }
 h1 {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 0px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 10px;
 }
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background-color: gray;
-    /* align-content: center; */
-    text-align: center;
-    line-height: 70px;
-    white-space: nowrap;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: gray;
+  /* align-content: center; */
+  text-align: center;
+  line-height: 70px;
+  white-space: nowrap;
+  }
+  span {
+    padding: 5px;
   }
